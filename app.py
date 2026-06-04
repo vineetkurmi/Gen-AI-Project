@@ -1,9 +1,9 @@
 import os
 import tempfile
 import streamlit as st
-from dotenv import load_dotenv
 
-load_dotenv()
+# Read Groq API key from Streamlit Secrets
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 
 # ── Page config ──────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -368,7 +368,7 @@ def build_index(file_obj, chunk_size, chunk_overlap, search_type, k_chunks):
     llm = ChatGroq(
         model="llama-3.3-70b-versatile",
         temperature=0,
-        api_key=os.getenv("GROQ_API_KEY"),
+        api_key=GROQ_API_KEY,
     )
 
     st.session_state.vectorstore = vs
