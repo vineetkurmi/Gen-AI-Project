@@ -6,3 +6,5 @@ faiss-cpu
 pypdf
 sentence-transformers
 langchain-text-splitters
+
+tavily-python
